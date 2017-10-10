@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'Meiqia-SDK-Demo' do
+  pod 'Meiqia', :path => '../'
+
+  target 'Meiqia-SDK-DemoTests' do
+    inherit! :search_paths
+
+    
+  end
+end
