@@ -1,11 +1,11 @@
 PODS:
-  - Meiqia (3.4.2):
-    - Meiqia/MeiqiaSDK (= 3.4.2)
-    - Meiqia/MQChatViewController (= 3.4.2)
+  - Meiqia (3.4.3):
+    - Meiqia/MeiqiaSDK (= 3.4.3)
+    - Meiqia/MQChatViewController (= 3.4.3)
     - MJRefresh
-  - Meiqia/MeiqiaSDK (3.4.2):
+  - Meiqia/MeiqiaSDK (3.4.3):
     - MJRefresh
-  - Meiqia/MQChatViewController (3.4.2):
+  - Meiqia/MQChatViewController (3.4.3):
     - Meiqia/MeiqiaSDK
     - MJRefresh
   - MJRefresh (3.1.14)
@@ -18,7 +18,7 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  Meiqia: f419e59bbad2c6db9e3c879a1870f1ac64f00f8d
+  Meiqia: ee94892282190a871e0d55b03ffb1b080328106f
   MJRefresh: 6642e35b3227a5447b9fd5e17c552c90196c9859
 
 PODFILE CHECKSUM: 07ac0bb8b91270d33640d65e816172ee5f6cea7f

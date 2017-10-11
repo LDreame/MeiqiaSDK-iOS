@@ -460,9 +460,9 @@
 		3F1ADC07798157942466B7BDDDBA2562 /* NSNull+MQSafe.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSNull+MQSafe.h"; sourceTree = "<group>"; };
 		3F34941C00D133F21636840F5CBDFA9E /* MJRefresh.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MJRefresh.xcconfig; sourceTree = "<group>"; };
 		4027A079D28078DF799D59A9844D9D1C /* MEIQIA_MLAudioMeterObserver.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MEIQIA_MLAudioMeterObserver.m; sourceTree = "<group>"; };
+		416CAD5B1F8DEC9E0049D62D /* MQRefresh.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MQRefresh.h; sourceTree = "<group>"; };
+		416CAD5C1F8DEC9E0049D62D /* MQRefresh.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MQRefresh.m; sourceTree = "<group>"; };
 		41BC956F01A6F3E80D101459E4575119 /* MQBotMenuCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MQBotMenuCell.m; sourceTree = "<group>"; };
-		41C13BA41F8CD98E003E9DBB /* MQRefresh.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MQRefresh.h; sourceTree = "<group>"; };
-		41C13BA51F8CD98E003E9DBB /* MQRefresh.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MQRefresh.m; sourceTree = "<group>"; };
 		41F05BCFC5170290844B74D22A21A281 /* Pods-Meiqia-SDK-Demo-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Meiqia-SDK-Demo-acknowledgements.markdown"; sourceTree = "<group>"; };
 		42930CF69BDC641DAEA7BE2B28CEC4BF /* MEIQIA_MLAudioRecorder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MEIQIA_MLAudioRecorder.h; sourceTree = "<group>"; };
 		43CF72287A385E75196DB932E145F3E4 /* MQPreChatCells.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MQPreChatCells.h; sourceTree = "<group>"; };
@@ -1657,8 +1657,8 @@
 		EDA690820D80549CBE8ECD7456EE0F88 /* MQPullRefreshView */ = {
 			isa = PBXGroup;
 			children = (
-				41C13BA41F8CD98E003E9DBB /* MQRefresh.h */,
-				41C13BA51F8CD98E003E9DBB /* MQRefresh.m */,
+				416CAD5B1F8DEC9E0049D62D /* MQRefresh.h */,
+				416CAD5C1F8DEC9E0049D62D /* MQRefresh.m */,
 			);
 			path = MQPullRefreshView;
 			sourceTree = "<group>";

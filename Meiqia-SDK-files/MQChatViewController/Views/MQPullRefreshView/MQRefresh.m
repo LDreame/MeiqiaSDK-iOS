@@ -19,7 +19,13 @@ static id keyUITableViewView, keyUITableViewMQRefreshAction, keyUITableViewMQRef
 @implementation UITableView (MQRefresh)
 
 - (NSUInteger)keyPathObserverCount {
-    return [(NSNumber *)objc_getAssociatedObject(self, &keyUITableViewMQRefreshObserverCount) unsignedIntegerValue];
+    id obj = objc_getAssociatedObject(self, &keyUITableViewMQRefreshObserverCount);
+    if (obj == nil) {
+        return 0;
+    } else {
+        return [(NSNumber *)objc_getAssociatedObject(self, &keyUITableViewMQRefreshObserverCount) unsignedIntegerValue];
+    }
+    
 }
 
 - (void)increaseKeyPathObserverCount {
