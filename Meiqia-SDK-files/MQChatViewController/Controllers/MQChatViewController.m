@@ -292,14 +292,19 @@ static CGFloat const kMQChatViewInputBarHeight = 80.0;
     [self.view addSubview:self.chatTableView];
     
     __weak typeof(self) wself = self;
-//    self.chatTableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-//        __strong typeof (wself) sself = wself;
-//        [sself.chatViewService startGettingHistoryMessages];
-//    }];
+#ifdef __IPHONE_OS_VERSION_MIN_REQUIRED
+#if __IPHONE_OS_VERSION_MIN_REQUIRED < 9000
+    self.chatTableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        __strong typeof (wself) sself = wself;
+        [sself.chatViewService startGettingHistoryMessages];
+    }];
+#else
     [self.chatTableView setupPullRefreshWithAction:^{
         __strong typeof (wself) sself = wself;
         [sself.chatViewService startGettingHistoryMessages];
     }];
+#endif
+#endif
     
     [self.chatTableView.refreshView setText:[MQBundleUtil localizedStringForKey:@"pull_refresh_normal"] forStatus: MQRefreshStatusDraging];
     [self.chatTableView.refreshView setText:[MQBundleUtil localizedStringForKey:@"pull_refresh_triggered"] forStatus: MQRefreshStatusTriggered];

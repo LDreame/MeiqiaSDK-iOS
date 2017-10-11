@@ -19,13 +19,7 @@ static id keyUITableViewView, keyUITableViewMQRefreshAction, keyUITableViewMQRef
 @implementation UITableView (MQRefresh)
 
 - (NSUInteger)keyPathObserverCount {
-    id obj = objc_getAssociatedObject(self, &keyUITableViewMQRefreshObserverCount);
-    if (obj == nil) {
-        return 0;
-    } else {
-        return [(NSNumber *)objc_getAssociatedObject(self, &keyUITableViewMQRefreshObserverCount) unsignedIntegerValue];
-    }
-    
+    return [(NSNumber *)objc_getAssociatedObject(self, &keyUITableViewMQRefreshObserverCount) unsignedIntegerValue];
 }
 
 - (void)increaseKeyPathObserverCount {
@@ -66,12 +60,18 @@ static id keyUITableViewView, keyUITableViewMQRefreshAction, keyUITableViewMQRef
     [self addObserver:self forKeyPath:@"contentOffset" options:(NSKeyValueObservingOptionNew) context:nil];
     [self increaseKeyPathObserverCount];
 }
+#ifdef __IPHONE_OS_VERSION_MIN_REQUIRED
+#if __IPHONE_OS_VERSION_MIN_REQUIRED < 9000
 
+#else
 - (void)dealloc {
     if ([self keyPathObserverCount] > 0) {
         [self removeObserver:self forKeyPath:@"contentOffset"];
     }
 }
+#endif
+#endif
+
 
 - (void)startAnimation {
     if (self.refreshView.status != MQRefreshStatusEnd) {
