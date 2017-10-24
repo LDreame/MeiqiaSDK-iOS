@@ -36,7 +36,7 @@
 #import "MJRefresh.h"
 #import "MQRefresh.h"
 
-
+#define LESS_THAN_IOS_9_0 [UIDevice currentDevice].systemVersion.floatValue < 9.0
 static CGFloat const kMQChatViewInputBarHeight = 80.0;
 
 @interface MQChatViewController () <UITableViewDelegate, MQChatViewServiceDelegate, MQInputToolViewDelegate, UIImagePickerControllerDelegate, MQChatTableViewDelegate, MQChatCellDelegate, MQServiceToViewInterfaceErrorDelegate,UINavigationControllerDelegate, MQEvaluationViewDelegate, MQInputContentViewDelegate, MQKeyboardControllerDelegate, MQRecordViewDelegate, MQRecorderViewDelegate, MQAGEmojiKeyboardViewDelegate, MQAGEmojiKeyboardViewDataSource>
@@ -68,6 +68,7 @@ static CGFloat const kMQChatViewInputBarHeight = 80.0;
     NSTimeInterval sendTime;        //发送时间，用于限制发送频率
     UIView *translucentView;        //loading 的半透明层
     UIActivityIndicatorView *activityIndicatorView; //loading
+    
 }
 
 - (void)dealloc {
@@ -292,19 +293,17 @@ static CGFloat const kMQChatViewInputBarHeight = 80.0;
     [self.view addSubview:self.chatTableView];
     
     __weak typeof(self) wself = self;
-#ifdef __IPHONE_OS_VERSION_MIN_REQUIRED
-#if __IPHONE_OS_VERSION_MIN_REQUIRED < 9000
     self.chatTableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         __strong typeof (wself) sself = wself;
         [sself.chatViewService startGettingHistoryMessages];
     }];
-#else
-    [self.chatTableView setupPullRefreshWithAction:^{
-        __strong typeof (wself) sself = wself;
-        [sself.chatViewService startGettingHistoryMessages];
-    }];
-#endif
-#endif
+//#else
+//    [self.chatTableView setupPullRefreshWithAction:^{
+//        __strong typeof (wself) sself = wself;
+//        [sself.chatViewService startGettingHistoryMessages];
+//    }];
+//#endif
+
     
     [self.chatTableView.refreshView setText:[MQBundleUtil localizedStringForKey:@"pull_refresh_normal"] forStatus: MQRefreshStatusDraging];
     [self.chatTableView.refreshView setText:[MQBundleUtil localizedStringForKey:@"pull_refresh_triggered"] forStatus: MQRefreshStatusTriggered];

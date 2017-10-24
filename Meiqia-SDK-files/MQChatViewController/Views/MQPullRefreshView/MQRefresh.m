@@ -60,17 +60,6 @@ static id keyUITableViewView, keyUITableViewMQRefreshAction, keyUITableViewMQRef
     [self addObserver:self forKeyPath:@"contentOffset" options:(NSKeyValueObservingOptionNew) context:nil];
     [self increaseKeyPathObserverCount];
 }
-#ifdef __IPHONE_OS_VERSION_MIN_REQUIRED
-#if __IPHONE_OS_VERSION_MIN_REQUIRED < 9000
-
-#else
-- (void)dealloc {
-    if ([self keyPathObserverCount] > 0) {
-        [self removeObserver:self forKeyPath:@"contentOffset"];
-    }
-}
-#endif
-#endif
 
 
 - (void)startAnimation {
